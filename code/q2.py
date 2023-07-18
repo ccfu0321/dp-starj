@@ -62,11 +62,11 @@ def predicate_mechanism(query, epsilon):
     p = list1.index(where_strings[where_strings.index('p_category') + 2])
     s = list2.index(where_strings[where_strings.index('s_region') + 2])
     # add the noise to the predicate
-    re_cate = list1[index_noise(p, len(list1), epsilon / 2)]
-    re_region = index_noise(s, len(list2), epsilon / 2)
+    re_cate = list1[index_noise(p, len(list1), epsilon / dim_num)]
+    re_region = index_noise(s, len(list2), epsilon / dim_num)
     # noisy star-join query
     where_strings[where_strings.index('p_category') + 2] = re_cate
-    where_strings[where_strings.index('s_region')+2] = list2[re_region]
+    where_strings[where_strings.index('s_region') + 2] = list2[re_region]
     parser_strings[1] = ' '.join(where_strings)
     re_query = parser_strings[0] + 'where' + ' ' + parser_strings[1] + ';'
 
