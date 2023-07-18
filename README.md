@@ -6,7 +6,7 @@ project
 └───code
 └───data
 │   └───Graph
-│   └───TPCH
+│   └───SSB
 └───query
 ```
 `./code` stores the codes.
