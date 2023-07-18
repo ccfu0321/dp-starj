@@ -1,0 +1,6 @@
+5*7:select count(*) from customer, lineorder, dates where lo_custkey = c_custkey and lo_orderdate = d_datekey and c_region = 'ASIA' and d_year between 1993 and 1997;
+250*366*mid:select count(*) from customer, lineorder, dates where lo_custkey = c_custkey and lo_orderdate = d_datekey and c_city = 'UNITED KI6' and d_daynuminyear between 20 and 100;
+5*366:select count(*) from customer, lineorder, dates where lo_custkey = c_custkey and lo_orderdate = d_datekey and c_region = 'ASIA' and d_daynuminyear between 20 and 100;
+5*1000:select count(*) from customer, lineorder, dates where lo_custkey = c_custkey and lo_orderdate = d_datekey and c_region = 'ASIA' and d_date = 'July 15, 1995';
+250*1000:select count(*) from customer, lineorder, dates where lo_custkey = c_custkey and lo_orderdate = d_datekey and c_city = 'UNITED ST2' and d_date = 'January 10, 1994';
+
