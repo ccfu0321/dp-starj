@@ -108,9 +108,9 @@ def PredMech(workload_query, epsilon):
             a = list2.index(words[words.index('s_region') + 2])
             a1 = list3.index(words[words.index('c_region') + 2])
             # add the noise to the predicate
-            noisy_a = index_noise(a, epsilon/3, list2)
-            noisy_a1 = index_noise(a1,  epsilon / 3, list3)
-            noise_year = index_noise(int(words[words.index('d_year') + 2]), epsilon / 3, list1)
+            noisy_a = index_noise(a, epsilon / dim_num, list2)
+            noisy_a1 = index_noise(a1,  epsilon / dim_num, list3)
+            noise_year = index_noise(int(words[words.index('d_year') + 2]), epsilon / dim_num, list1)
             # noisy queries
             words[words.index('s_region') + 2] = noisy_a
             words[words.index('c_region') + 2] = noisy_a1
@@ -121,13 +121,13 @@ def PredMech(workload_query, epsilon):
             words2 = query2.split(" ")
             b = list2.index(words2[words2.index('s_region') + 2])
             b1 = list3.index(words2[words2.index('c_region') + 2])
-            noisy_b = index_noise(b, epsilon / 3, list2)
-            noisy_b1 = index_noise(b1, epsilon / 3, list3)
+            noisy_b = index_noise(b, epsilon / dim_num, list2)
+            noisy_b1 = index_noise(b1, epsilon / dim_num, list3)
             words2[words2.index('s_region') + 2] = noisy_b
             words2[words2.index('c_region') + 2] = noisy_b1
             s_l = int(words2[words2.index('between') + 1])
             s_r = int(words2[words2.index('between') + 3])
-            f = range_noise(int(s_l), int(s_r), list1, epsilon/3)
+            f = range_noise(int(s_l), int(s_r), list1, epsilon / dim_num)
             words2[words2.index('between') + 1] = str(f[0][0])
             words2[words2.index('between') + 3] = str(f[0][1])
             re_query.append(' '.join(words2))
@@ -141,11 +141,11 @@ def DecomPred(workload, epsilon):
     re_query = []
     noise_date = []
     for i in list1:
-        noise_date.append(index_noise(i, epsilon/3, list1))
+        noise_date.append(index_noise(i, epsilon/dim_num, list1))
     a = list2.index("'ASIA'")
     a1 = list3.index("'ASIA'")
-    noisy_a = index_noise(a, epsilon/3, list2)
-    noisy_a1 = index_noise(a1, epsilon / 3, list3)
+    noisy_a = index_noise(a, epsilon/dim_num, list2)
+    noisy_a1 = index_noise(a1, epsilon / dim_num, list3)
     words[words.index('s_region') + 2] = noisy_a
     words[words.index('c_region') + 2] = noisy_a1
     for j in range(len(noise_date)):
