@@ -43,4 +43,4 @@ Here, we need two databases for the graph dataset: `Deezer` and `Amazon`. For SS
 
 
 ## Running
-For the SSB queries, run the `q*` in the code. Run the `k*` in the code for the k-star queries. `distributions` is to generate different data distributions to update the database and run the `workload` for the star-join workload queries. 
+For the SSB queries, run the `q*` in the code. Run the `k*` in the code for the k-star queries. `distributions` is to generate different data distributions to update the database and run the `workload` for the star-join workload queries. Running the R2T, LS, and TM, please refer to [Comparison schemes](https://github.com/hkustDB/Race-to-the-Top).
