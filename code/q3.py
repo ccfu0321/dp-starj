@@ -78,9 +78,9 @@ def predicate_mechanism(query, epsilon):
     a = list1.index(where_strings[where_strings.index('c_region') + 2])
     b = list2.index(where_strings[where_strings.index('s_region') + 2])
     # add the noise to the predicate
-    f = range_noise(int(s_l), int(s_r), list3, epsilon / 3)
-    index1 = index_noise(a, len(list1), epsilon / 3)
-    index2 = index_noise(b, len(list2), epsilon / 3)
+    f = range_noise(int(s_l), int(s_r), list3, epsilon / dim_num)
+    index1 = index_noise(a, len(list1), epsilon / dim_num)
+    index2 = index_noise(b, len(list2), epsilon / dim_num)
     # noisy star-join query
     where_strings[where_strings.index('between') + 1] = str(f[0][0])
     where_strings[where_strings.index('between') + 3] = str(f[0][1])
