@@ -78,10 +78,10 @@ def predicate_mechanism(query, epsilon):
     s_l = list3.index(where_strings[where_strings.index('or') - 1])
     s_r = list3.index(where_strings[where_strings.index('or') + 3])
     # add the noise to the predicate
-    index1 = index_noise(a, len(list1), epsilon / 3)
-    index2 = index_noise(b, len(list2), epsilon / 3)
-    re_cate1 = str(list3[index_noise(int(s_l[1]), len(list3), epsilon / 3)])
-    re_cate2 = str(list3[index_noise(int(s_r[1]), len(list3), epsilon / 3)])
+    index1 = index_noise(a, len(list1), epsilon / dim_num)
+    index2 = index_noise(b, len(list2), epsilon / dim_num)
+    re_cate1 = str(list3[index_noise(int(s_l[1]), len(list3), epsilon / dim_num)])
+    re_cate2 = str(list3[index_noise(int(s_r[1]), len(list3), epsilon / dim_num)])
     # noisy star-join query
     where_strings[where_strings.index('c_region') + 2] = list1[index1]
     where_strings[where_strings.index('s_region') + 2] = list2[index2]
