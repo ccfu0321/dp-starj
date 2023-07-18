@@ -1,0 +1,1 @@
+select sum(lo_revenue) from lineorder, customer, supplier, dates where lo_custkey = c_custkey and lo_suppkey = s_suppkey and lo_orderdate = d_datekey and c_region = 'ASIA' and s_region = 'ASIA' and d_year between 1992 and 1997;

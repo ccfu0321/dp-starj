@@ -1,0 +1,4 @@
+number = Fact_table_size
+factor = [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+c3:Select count(*) from (select  * from lineorder LIMIT factor*number ) as t1, customer, supplier, dates where t1.lo_custkey = c_custkey and t1.lo_suppkey = s_suppkey and t1.lo_orderdate = d_datekey and c_region = 'ASIA' and s_region = 'ASIA' and d_year between 1992 and 1997;
+s3:Select sum(lo_revenue) from (select  * from lineorder LIMIT factor*number ) as t1, customer, supplier, dates where t1.lo_custkey = c_custkey and t1.lo_suppkey = s_suppkey and t1.lo_orderdate = d_datekey and c_region = 'ASIA' and s_region = 'ASIA' and d_year between 1992 and 1997;

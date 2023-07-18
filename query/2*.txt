@@ -1,0 +1,1 @@
+select count (*) from edge as r1, edge as r2 where r1.from_id = r2.from_id and r1.to_id < r2.to_id and r2.to_id between 1 and node_number ;
