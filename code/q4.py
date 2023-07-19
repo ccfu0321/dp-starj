@@ -79,19 +79,21 @@ def predicate_mechanism(query, epsilon):
     b = list2.index(where_strings[where_strings.index('s_nation') + 2])
     s_l = list3.index(where_strings[where_strings.index('or') - 1])
     s_r = list3.index(where_strings[where_strings.index('or') + 3])
-    y = list4.index(where_strings[where_strings.index('d_year') + 2])
+    y_l = list4.index(where_strings[where_strings.index('between') + 1])
+    y_r = list4.index(where_strings[where_strings.index('between') + 3])
     # add the noise to the predicate
     index1 = index_noise(a, len(list1), epsilon / dim_num)
     index2 = index_noise(b, len(list2), epsilon / dim_num)
     re_cate1 = str(list3[index_noise(int(s_l[1]), len(list3), epsilon / dim_num)])
     re_cate2 = str(list3[index_noise(int(s_r[1]), len(list3), epsilon / dim_num)])
-    re_y = index_noise(y, len(list4), epsilon / dim_num)
+    re_y = range_noise(y_l, y_r, list4, epsilon / dim_num)
     # noisy star-join query
     where_strings[where_strings.index('c_region') + 2] = list1[index1]
     where_strings[where_strings.index('s_nation') + 2] = list2[index2]
     where_strings[where_strings.index('or') - 1] = re_cate1
     where_strings[where_strings.index('or') + 3] = re_cate2
-    where_strings[where_strings.index('d_year') + 2] = re_y
+    where_strings[where_strings.index('between') + 2] = re_y[0]
+    where_strings[where_strings.index('between') + 3] = re_y[1]
 
     parser_strings[1] = ' '.join(where_strings)
     re_query = parser_strings[0] + 'where' + ' ' + parser_strings[1] + ';'
