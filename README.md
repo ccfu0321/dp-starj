@@ -8,12 +8,15 @@ project
 │   └───Graph
 │   └───SSB
 └───query
+└───techrep
 ```
 `./code` stores the codes.
 
 `./data` stores graph and SSB datasets.
 
 `./query` stores the queries used in the experiments of the paper.
+
+`./techrep` stores the technical report of the paper.
 
 
 ## Prerequisites
