@@ -16,7 +16,7 @@ def result(sql_query):
 
 query1 = "select distinct c_region from customer ;"
 list1 = result(query1)
-query2 = "select distinct s_region from supplier ;"
+query2 = "select distinct s_nation from supplier ;"
 list2 = result(query2)
 query3 = "select distinct p_mfgr from part ;"
 list3 = result(query3)
@@ -74,7 +74,7 @@ def predicate_mechanism(query, epsilon):
 
     # extract the predicate of star-join query
     a = list1.index(where_strings[where_strings.index('c_region') + 2])
-    b = list2.index(where_strings[where_strings.index('s_region') + 2])
+    b = list2.index(where_strings[where_strings.index('s_nation') + 2])
     s_l = list3.index(where_strings[where_strings.index('or') - 1])
     s_r = list3.index(where_strings[where_strings.index('or') + 3])
     # add the noise to the predicate
@@ -84,7 +84,7 @@ def predicate_mechanism(query, epsilon):
     re_cate2 = str(list3[index_noise(int(s_r[1]), len(list3), epsilon / dim_num)])
     # noisy star-join query
     where_strings[where_strings.index('c_region') + 2] = list1[index1]
-    where_strings[where_strings.index('s_region') + 2] = list2[index2]
+    where_strings[where_strings.index('s_nation') + 2] = list2[index2]
     where_strings[where_strings.index('or') - 1] = re_cate1
     where_strings[where_strings.index('or') + 3] = re_cate2
 
